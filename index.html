@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>untuk_hanny</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== macOS DESKTOP ===== -->
+  <div id="desktop">
+
+    <!-- Menu Bar -->
+    <nav id="menubar">
+      <div class="menubar-left">
+        <span class="menu-apple">&#xF8FF;</span>
+        <span class="menu-item bold">untuk_hanny</span>
+        <span class="menu-item">File</span>
+        <span class="menu-item">Tampilan</span>
+        <span class="menu-item">Bantuan</span>
+      </div>
+      <div class="menubar-right">
+        <span id="menubar-time">--:--</span>
+      </div>
+    </nav>
+
+    <!-- macOS Window -->
+    <div id="macos-window">
+
+      <!-- Title Bar -->
+      <div class="titlebar">
+        <div class="traffic-lights">
+          <button class="tl red"    title="Tutup"></button>
+          <button class="tl yellow" title="Minimize"></button>
+          <button class="tl green"  title="Perbesar"></button>
+        </div>
+        <button id="btn-back" class="titlebar-back">‹ Kembali</button>
+        <span class="window-title" id="window-title-text">untuk_hanny.app</span>
+      </div>
+
+      <!-- Dialog: sidebar + screens (dialog mode) -->
+      <div id="window-dialog">
+<main class="window-body">
+          <!-- Screen 1: Welcome -->
+          <div id="screen-welcome" class="window-screen">
+            <div class="app-icon-wrap">
+              <div class="app-icon">💌</div>
+              <span class="notif-badge">1</span>
+            </div>
+            <h2 class="app-title">untuk_hanny.app</h2>
+            <p class="app-desc">Ada seseorang yang meninggalkan<br/>pesan spesial untukmu...</p>
+            <div class="app-notif-bar">
+              <span class="notif-dot"></span>
+              1 pesan baru &nbsp;·&nbsp; 2 Agustus 2026
+            </div>
+            <div class="app-buttons">
+              <button id="btn-nanti" class="btn-cancel">Nanti</button>
+              <button id="btn-buka" class="btn-primary">Buka Pesan →</button>
+            </div>
+          </div>
+
+          <!-- Screen 2: Pertanyaan -->
+          <div id="screen-question" class="window-screen screen-hidden">
+            <div class="question-icon">🤔</div>
+            <h2 class="app-title">Pertama kali baca pesan ini?</h2>
+            <p class="app-desc">Pilih salah satu untuk melanjutkan</p>
+            <div class="app-buttons question-buttons">
+              <button id="btn-ya"    class="btn-primary">Ya, pertama kali ✨</button>
+              <button id="btn-tidak" class="btn-cancel">Tidak, sudah baca</button>
+            </div>
+          </div>
+
+          <!-- Screen 4: Kurang baik -->
+          <div id="screen-bad-mood" class="window-screen screen-hidden">
+            <div class="question-icon">🫂</div>
+            <h2 class="app-title" style="font-size:1.2rem; line-height:1.6; max-width:320px;">
+              kamu kenapa? capek? lagi ada masalah?
+            </h2>
+            <p class="app-desc" style="max-width:300px; line-height:1.8;">
+              kalau ada apa-apa cerita ya ke aku, jangan disimpan sendiri...<br/><br/>
+              sekarang istirahat dulu, jangan buka pesan kalau mood lagi kurang baik ya!
+            </p>
+            <div class="app-buttons">
+              <button id="btn-bad-mood-back" class="btn-primary">Oke, istirahat dulu 🌙</button>
+            </div>
+          </div>
+
+          <!-- Screen 5: Good Mood -->
+          <div id="screen-good-mood" class="window-screen screen-hidden">
+            <div class="question-icon">🌟</div>
+            <h2 class="app-title">Yay, senang dengernya!</h2>
+            <p class="app-desc" style="max-width:300px; line-height:1.8;">
+              Semoga kamu happy seharian~ 🌸<br/>
+              Sebelum lanjut ke pesan, ada satu quiz yang harus dijawab dulu.<br/>
+              Kalau salah, gabisa lanjut ya!
+            </p>
+            <div class="app-buttons question-buttons">
+              <button id="btn-good-mood-next" class="btn-primary">Oke lanjut 📝</button>
+              <button id="btn-good-mood-back" class="btn-cancel">Nanti dulu deh, balik ke home</button>
+            </div>
+          </div>
+
+          <!-- Screen 8: Konfirmasi sudah baca -->
+          <div id="screen-confirm-read" class="window-screen screen-hidden">
+            <div class="question-icon">🧐</div>
+            <h2 class="app-title">Yakin sudah pernah baca sebelumnya?</h2>
+            <p class="app-desc">Pastikan dulu, jangan salah klik ya!</p>
+            <div class="app-buttons question-buttons">
+              <button id="btn-confirm-yes" class="btn-primary">Iya, sudah baca ✓</button>
+              <button id="btn-confirm-no"  class="btn-cancel">Eh, salah klik 😅</button>
+            </div>
+          </div>
+
+          <!-- Screen 7: Lolos -->
+          <div id="screen-passed" class="window-screen screen-hidden">
+            <div class="question-icon">🎉</div>
+            <h2 class="app-title">Selamat, kamu lolos tes!</h2>
+            <p class="app-desc">Sekarang lanjut ke pesannya ya 💌</p>
+            <div class="app-buttons">
+              <button id="btn-passed-next" class="btn-primary">Lanjut ke Pesan →</button>
+            </div>
+          </div>
+
+          <!-- Screen 6: Quiz -->
+          <div id="screen-quiz" class="window-screen screen-hidden">
+            <div class="question-icon">💭</div>
+            <h2 class="app-title" style="max-width:300px; line-height:1.5;">
+              Apakah kamu suka sama author yang membuat pesan ini?
+            </h2>
+            <div class="app-buttons question-buttons">
+              <button id="btn-quiz-ya"    class="btn-primary">Ya 💖</button>
+              <button id="btn-quiz-tidak" class="btn-cancel">Tidak</button>
+            </div>
+          </div>
+
+          <!-- Screen 3: Mood -->
+          <div id="screen-mood" class="window-screen screen-hidden">
+            <div class="question-icon">🌤️</div>
+            <h2 class="app-title">Bagaimana mood hari ini?</h2>
+            <p class="app-desc">Ceritakan perasaanmu sekarang</p>
+            <div class="app-buttons question-buttons">
+              <button id="btn-mood-good" class="btn-primary">Lagi good mood 😊</button>
+              <button id="btn-mood-bad"  class="btn-cancel">Mood lagi kurang baik 😔</button>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <!-- Anniversary Content (fullscreen mode) -->
+      <div id="anniversary-content">
+        <div id="particles-js"></div>
+
+        <!-- Scrollable sections -->
+        <div class="ann-scroll">
+
+          <!-- Hero -->
+          <section class="hero">
+            <div class="hero-content">
+              <p class="hero-sub" data-reveal data-reveal-delay="100">Untuk seseorang yang spesial</p>
+              <h1 class="hero-title" data-reveal data-reveal-delay="250">Happy Girlfriend's Day</h1>
+              <p class="hero-names" data-reveal data-reveal-delay="400"><span id="typed-names"></span></p>
+              <p class="hero-date" data-reveal data-reveal-delay="550">2 Januari 2024 &mdash; 2 Agustus 2026</p>
+              <div class="hero-hearts" data-reveal data-reveal-delay="700">
+                <span>♥</span><span>♥</span><span>♥</span>
+              </div>
+            </div>
+            <div class="scroll-hint">
+              <span>Scroll ke bawah</span>
+              <div class="arrow-down"></div>
+            </div>
+          </section>
+
+          <!-- Pendahuluan -->
+          <section class="section pendahuluan">
+            <div class="pendahuluan-wrap" data-reveal>
+              <p class="pendahuluan-label">Hai, Raihanny 🌸</p>
+              <p class="pendahuluan-text">
+                Semoga kamu baca ini dalam keadaaan yang baik, ini web spesial, aku dedikasikan buat kamu, aku harap kamu suka.
+                Dari pesan ini, aku mau ngucapin happy girlfriend’s day! <br/>  <br/> 
+                Emang kita pacaran?? meskipun dari dulu kamu gak pernah ngakuin bahwa kamu adalah “seseorang” buat aku, 
+                tapi kemarin kamis, 30 September 2026, dari konten ig itu kamu ngode aku, jadii aku anggap kamu adalah myy~~~ (hehe)
+              </p>
+              <p class="pendahuluan-text">
+                Anyway, ini adalah hari spesial karena cuma dirayain farhan dan hanny, 
+                harusnya tanggal 1 agustus tapi kamu pergi kondangan jadi aku ngerasa momennya gak pas buat ngasih pesan ini, jadi tanggal 2 deh.
+              </p>
+              <p class="pendahuluan-text">
+                Tolong jaga bunga nya ya— kalo bisa dipindah ke wadah atau botol dikasih air biar makin lama hidupnya,
+                sama soal bunga ada satu lagi (baca pesan di akhir yaa)
+              </p>
+            </div>
+          </section>
+
+          <!-- Our Story -->
+          <section class="section our-story">
+            <h2 class="section-title" data-reveal>Hanny</h2>
+            <p class="section-subtitle" data-reveal data-reveal-delay="100">Makasih ya dulu kamu udah lewat dan bersedia mampir bentar di hidupku, aku ada kesempatan buat kenal dan bisa ambil langkah lebih jauh sama kamu. </p>
+            <div class="timeline">
+              <div class="timeline-item left" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img1.2.jpg" alt="Makasih udah mau aku ajak KKN" />
+                  <span class="timeline-date">Juli 2023</span>
+                  <h3>Makasih udah mau aku ajak KKN</h3>
+                  </div>
+              </div>
+              <div class="timeline-item right" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img2.jpg" alt="Makasih udah mau aku ajak ke solo" />
+                  <span class="timeline-date">September 2023</span>
+                  <h3>Makasih udah mau aku ajak ke solo</h3>
+                  </div>
+              </div>
+
+              <div class="timeline-item left" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img6.jpg" alt="Makasih mau main ke jakarta aquarium" />
+                  <span class="timeline-date">November 2023</span>
+                  <h3>Makasih mau main ke jakarta aquarium</h3>
+                  </div>
+              </div>
+              <div class="timeline-item right" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img7.jpg" alt="Makasih mau jauh-jauh pergi main ke lereng gunung" />
+                  <span class="timeline-date">Januari 2024</span>
+                  <h3>Makasih mau jauh-jauh pergi main ke lereng gunung</h3>
+                 </div>
+              </div>
+              <div class="timeline-item left" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img3.jpg" alt="Makasih mau aku temenin di internet learning cafe" />
+                  <span class="timeline-date">Maret 2024</span>
+                  <h3>Makasih mau aku temenin di internet learning cafe</h3>
+                  </div>
+              </div>
+              <div class="timeline-item right" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img4.jpg" alt="Makasih mau diajak ke mall bareng" />
+                  <span class="timeline-date">April 2024</span>
+                  <h3>Makasih mau diajak ke mall bareng</h3>
+                  </div>
+              </div>
+              <div class="timeline-item left" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img5.jpg" alt="Makasih mau habisin waktu di perpusat" />
+                  <span class="timeline-date">Mei 2024</span>
+                  <h3>Makasih mau habisin waktu di perpusat</h3>
+                  </div>
+              </div>
+              <div class="timeline-item right" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img9.jpg"alt="Makasih mau aku ajak ke dieng dan wonogiri ketemu keluargaku" />
+                  <span class="timeline-date">Juni 2024</span>
+                  <h3>Makasih mau aku ajak ke Dieng dan Wonogiri ketemu keluargaku</h3>
+                  </div>
+              </div>
+              <div class="timeline-item left" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img10.jpg" alt="Makasih udah dikasih kesempatan main ke tanjung pinang" />
+                  <span class="timeline-date">Januari 2025</span>
+                  <h3>Makasih udah dikasih kesempatan main ke Tanjung Pinang ketemu keluargamu</h3>
+                  </div>
+              </div>
+              <div class="timeline-item right" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img11.jpg" alt="Makasih mau diajak keliling main di pku" />
+                  <span class="timeline-date">April 2026</span>
+                  <h3>Makasih mau diajak keliling main di Pekanbaru</h3>
+                  </div>
+              </div>
+              <div class="timeline-item left" data-reveal>
+                <div class="timeline-content">
+                  <img class="timeline-img" src="public/img13.jpg" alt="Hari Ini & Seterusnya" />
+                  <span class="timeline-date">Agustus 2026</span>
+                  <h3>Hari Ini &amp; Seterusnya</h3>
+                  <p>dan makasih-makasih lainnya yang mungkin aku lupa, semoga masih banyak makasih yang bisa aku ucap lagi, gak berhenti disini.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Gallery -->
+          <section class="section gallery-section">
+            <h2 class="section-title" data-reveal>Terimakasih lainnya</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-reveal><img src="public/img1.1.jpg" alt="Momen 11" /><div class="gallery-overlay"><span>First Time foto berdua</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.1.jpg"  alt="Momen 1" /><div class="gallery-overlay"><span>First time bikin kamu nangis :(</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.2.jpg" alt="Momen 2" /><div class="gallery-overlay"><span>First time ikut kerjaanmu as media MIPA</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.3.jpg" alt="Momen 3" /><div class="gallery-overlay"><span>Aku sidang</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.4.jpg" alt="Momen 4" /><div class="gallery-overlay"><span>Kamu sidang</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.5.jpg" alt="Momen 5" /><div class="gallery-overlay"><span>First time bowling</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.6.jpg" alt="Momen 6" /><div class="gallery-overlay"><span>Kamu pulang :(</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.7.png" alt="Momen 7" /><div class="gallery-overlay"><span>Foto paling deket kita ><</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.8.png" alt="Momen 8" /><div class="gallery-overlay"><span>First time kehujan deres berdua</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.9.jpg" alt="Momen 9" /><div class="gallery-overlay"><span>First time naik motor di PKU</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.10.png" alt="Momen 10" /><div class="gallery-overlay"><span>First Time sarapan di PKU</span></div></div>
+                <div class="gallery-item" data-reveal><img src="public/img12.11.jpg" alt="Momen 11" /><div class="gallery-overlay"><span>Video call sama si cantik</span></div></div>
+            </div>
+          </section>
+
+          <!-- Love Letter -->
+          <section class="section love-letter">
+            <div class="letter-card" data-reveal>
+              <div class="letter-decor top-left">❝</div>
+              <h2 class="letter-title">Surat Untukmu</h2>
+              <p>Aku mau bilang, berkali-kali sih ku sampaikan,</p><br />
+              <p>aku adalah orang yang sangat sangat overthinking, aku gak sanggup kalo kamu berada di antara cowok-cowok atau berdua sama cowok, mau itu bff, temen, baru kenal, or whatever, help jaga diri. Aku selalu berusaha buat set boundaries sama perempuan lain hanya sebagai teman, dari cara interaksi, bercanda, ngechat, dan lainnya. </p><br />
+              <p>Meskipun kamu bilang “gapapa aku sama si a gini2, gapapa aku sama si b gini2”, aku cuma pengen luapkan semuanya buat seseorang, jadi aku berharap seseorang itu juga perlakukan hal yg sama buat aku, apalagi terpisah jarak sejauh ini aku gaktau disana apa yg terjadi, mungkin buat kamu ok, buat aku no ok (bukan aku yg gak percaya, balik lagi, aku selalu overthinking).</p><br />
+              <p>Jadi tolong ya, berusaha buat transparan, apapun yg terjadi sama kamu, yg ada sangkut paut sama laki-laki, sepele ngga sepele, apapun, kabarin aku. Sesederhana dapet kabar receh dari kamu udah bikin aku seneng.</p><br />
+              <p>Dannnn tolong, kalau suatu saat kita ada argumen, dan kamu marah sama aku, tolong jangan silent treatment, karena gak akan selesaikan masalah, ini kelemahanku, aku gak sanggup ketika harus berusaha minta maaf tapi didiemin. Bener bener berat kalau semalaman gak bisa dibuat tidur. Tentunya aku juga bakal berusaha buat menghindari pertikaian. Aku tau kok, kamu perempuan baik buat aku hehe~</p><br />
+              <p>Aku berharap ini adalah ucapan pertama dan terakhir yang ku buat, karena taun depan semoga kamu bukan my “girlfriend” lagi, aamiin…</p><br />
+              <p>Makasih udah mau baca pesan ku sampe akhir, aku bakal berusaha semampu aku buat bikin perempuan pilihan ku bahagia dengan caraku.</p><br />
+              <p>Dan yg terakhir, aku pengen kamu foto sama bunganya, kirim ke farhan, dan kalau bolehhhhhh banget jangan sekali lihat :)</p><br />
+              <p class="letter-sign"><em>farhan </em></p>
+              <div class="letter-decor bottom-right">❞</div>
+            </div>
+          </section>
+
+          <!-- Closing -->
+          <section class="section closing">
+            <div class="closing-content" data-reveal>
+              <div class="closing-hearts"><span class="big-heart">♥</span></div>
+              <h2 class="closing-quote">"Setiap hari bisa sama kamu adalah hari terbaik dalam hidupku."</h2>
+              <p class="closing-sub">Terima kasih sudah ada dan sudah memilih aku.</p>
+              <p class="closing-year">semoga 2024 &mdash; Selamanya </p>
+            </div>
+            <div class="confetti-container" id="confetti-container"></div>
+          </section>
+
+        </div><!-- /.ann-scroll -->
+
+        <button id="music-btn" class="music-btn" title="Play / Pause musik">
+          <span id="music-icon">♪</span>
+        </button>
+      </div><!-- /#anniversary-content -->
+
+    </div><!-- /#macos-window -->
+
+    <!-- Dock -->
+    <div id="dock">
+      <div class="dock-inner">
+        <div class="dock-item" data-label="Finder"><div class="dock-icon">🗂</div></div>
+        <div class="dock-item dock-active" data-label="Hanny">
+          <div class="dock-icon">💌</div>
+          <div class="dock-dot"></div>
+        </div>
+        <div class="dock-item" data-label="Musik">
+          <div class="dock-hint" id="music-hint">klik untuk musik 🎵</div>
+          <div class="dock-icon">🎵</div>
+        </div>
+        <div class="dock-separator"></div>
+        <div class="dock-item" data-label="Foto"><div class="dock-icon">🖼</div></div>
+        <div class="dock-item" data-label="Kalender"><div class="dock-icon">📅</div></div>
+      </div>
+    </div>
+
+  <!-- ===== PHOTO WINDOW ===== -->
+  <div id="photo-window" class="photo-window photo-window-hidden">
+    <div class="titlebar">
+      <div class="traffic-lights">
+        <button class="tl red" id="photo-close" title="Tutup"></button>
+        <button class="tl yellow"></button>
+        <button class="tl green"></button>
+      </div>
+      <span class="window-title">Photos</span>
+    </div>
+    <div class="photo-grid-wrap">
+      <div class="photo-grid">
+        <img src="public/img1.1.jpg"  data-photo />
+        <img src="public/img1.2.jpg"  data-photo />
+        <img src="public/img2.jpg"    data-photo />
+        <img src="public/img3.jpg"    data-photo />
+        <img src="public/img4.jpg"    data-photo />
+        <img src="public/img5.jpg"    data-photo />
+        <img src="public/img6.jpg"    data-photo />
+        <img src="public/img7.jpg"    data-photo />
+        <img src="public/img9.jpg"    data-photo />
+        <img src="public/img10.jpg"   data-photo />
+        <img src="public/img11.jpg"   data-photo />
+        <img src="public/img12.1.jpg" data-photo />
+        <img src="public/img12.2.jpg" data-photo />
+        <img src="public/img12.3.jpg" data-photo />
+        <img src="public/img12.4.jpg" data-photo />
+        <img src="public/img12.5.jpg" data-photo />
+        <img src="public/img12.6.jpg" data-photo />
+        <img src="public/img12.7.png" data-photo />
+        <img src="public/img12.8.png" data-photo />
+        <img src="public/img12.9.jpg" data-photo />
+        <img src="public/img12.10.png" data-photo />
+        <img src="public/img12.11.jpg" data-photo />
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div id="photo-lightbox" class="photo-lightbox photo-lightbox-hidden">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <button class="lightbox-nav prev" id="lightbox-prev">&#8249;</button>
+    <img id="lightbox-img" src="" alt="" />
+    <button class="lightbox-nav next" id="lightbox-next">&#8250;</button>
+  </div>
+
+  </div><!-- /#desktop -->
+
+  <audio id="bg-audio" loop>
+    <source src="public/audio_track.webm" type="audio/webm" />
+  </audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
