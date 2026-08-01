@@ -456,3 +456,14 @@ function spawnConfetti() {
     container.appendChild(piece);
   }
 }
+
+// ===== GALLERY TAP (mobile) =====
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const isTouch = !window.matchMedia('(hover: hover)').matches;
+    if (!isTouch) return;
+    const wasOpen = item.classList.contains('tapped');
+    document.querySelectorAll('.gallery-item.tapped').forEach(el => el.classList.remove('tapped'));
+    if (!wasOpen) item.classList.add('tapped');
+  });
+});
