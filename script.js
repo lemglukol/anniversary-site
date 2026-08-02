@@ -63,7 +63,7 @@ function dismissMusicHint() {
 }
 
 // Auto-dismiss hint after 9s (appear 1.8s + 3 pulse cycles ~6s)
-setTimeout(dismissMusicHint, 5000);
+setTimeout(dismissMusicHint, 9000);
 
 dockMusicItem.addEventListener('click', function () {
   dismissMusicHint();
